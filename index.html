@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Azulejos
+</title>
+<link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+<style>
+
+html{
+  background-color:#E1E3D6;
+}
+
+.row{
+  display:block;
+  width:100%;
+}
+
+.tile{
+  width:8vmin;
+  height:8vmin;
+  display:inline-block;
+  border:3px black solid;
+  overflow:hidden;
+  text-align:center;
+
+  box-sizing:border-box;
+}
+
+.spacer{
+  width:8vmin;
+  height:8vmin;
+  display:inline-block;
+  overflow:hidden;
+  text-align:center;
+
+  box-sizing:border-box;
+}
+vertical-align:center;
+
+.spacer img{
+  margin-top:3vmin;
+  vertical-align:center;
+  width:50%;
+}
+
+
+</style>
+</head>
+<body>
+
+
+<div class="row" style="display:flex;">
+<div style="flex:.5">
+<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;margin-left:40vw;">
+Azulejos
+</h1>
+</div>
+<div style="flex:.5">
+<h1 style="font-size:5vmin;font-family: 'Bad Script',cursive;margin-left:20vw;">
+Score: 0
+</h1>
+</div>
+</div>
+<div class="row">
+  <div class="spacer"></div>
+  <div id="factory0:0" class="tile"></div>
+  <div id="factory0:1" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory1:0" class="tile"></div>
+  <div id="factory1:1" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory2:0" class="tile"></div>
+  <div id="factory2:1" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory3:0" class="tile"></div>
+  <div id="factory3:1" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory4:0" class="tile"></div>
+  <div id="factory4:1" class="tile"></div>
+
+
+  <div class="spacer"></div>
+  <div id="factory7:0" class="tile"></div>
+  <div id="factory7:1" class="tile"></div>
+  <div id="factory7:2" class="tile"></div>
+
+</div>
+<div class="row">
+  <div class="spacer"></div>
+  <div id="factory0:2" class="tile"></div>
+
+  <div id="factory0:3" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory1:2" class="tile"></div>
+  <div id="factory1:3" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory2:2" class="tile"></div>
+  <div id="factory2:3" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory3:2" class="tile"></div>
+  <div id="factory3:3" class="tile"></div>
+  <div class="spacer"></div>
+
+  <div id="factory4:2" class="tile"></div>
+  <div id="factory4:3" class="tile"></div>
+
+
+
+    <div class="spacer"></div>
+    <div id="factory7:3" class="tile"></div>
+    <div id="factory7:4" class="tile"></div>
+    <div id="factory7:5" class="tile"></div>
+</div>
+
+<div class="row">
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+
+  <div class="spacer"></div>
+  <div id="factory7:6" class="tile"></div>
+  <div id="factory7:7" class="tile"></div>
+  <div id="factory7:8" class="tile"></div>
+
+</div>
+
+
+<div class="row">
+  <div id="board0:0" class="spacer"></div>
+  <div id="board1:0" class="spacer"></div>
+  <div id="board2:0" class="spacer"></div>
+  <div id="board3:0" class="spacer"></div>
+  <div id="board4:0" class="tile"></div>
+  <div id="board5:0" class="spacer"><img src="./assets/arrow.png"></div>
+  <div id="board6:0" class="tile"></div>
+  <div id="board7:0" class="tile"></div>
+  <div id="board8:0" class="tile"></div>
+  <div id="board9:0" class="tile"></div>
+  <div id="board10:0" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div id="factory5:0" class="tile"></div>
+  <div id="factory5:1" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div id="factory7:9" class="tile"></div>
+  <div id="factory7:10" class="tile"></div>
+  <div id="factory7:11" class="tile"></div>
+
+
+</div>
+
+<div class="row">
+  <div id="board0:1" class="spacer"></div>
+  <div id="board1:1" class="spacer"></div>
+  <div id="board2:1" class="spacer"></div>
+  <div id="board3:1" class="tile"></div>
+  <div id="board4:1" class="tile"></div>
+  <div id="board5:1" class="spacer"><img src="./assets/arrow.png"></div>
+  <div id="board6:1" class="tile"></div>
+  <div id="board7:1" class="tile"></div>
+  <div id="board8:1" class="tile"></div>
+  <div id="board9:1" class="tile"></div>
+  <div id="board10:1" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div id="factory5:2" class="tile"></div>
+  <div id="factory5:3" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div id="factory7:12" class="tile"></div>
+  <div id="factory7:13" class="tile"></div>
+  <div id="factory7:14" class="tile"></div>
+
+
+</div>
+<div class="row">
+  <div id="board0:2" class="spacer"></div>
+  <div id="board1:2" class="spacer"></div>
+  <div id="board2:2" class="tile"></div>
+  <div id="board3:2" class="tile"></div>
+  <div id="board4:2" class="tile"></div>
+  <div id="board5:2" class="spacer"><img src="./assets/arrow.png"></div>
+  <div id="board6:2" class="tile"></div>
+  <div id="board7:2" class="tile"></div>
+  <div id="board8:2" class="tile"></div>
+  <div id="board9:2" class="tile"></div>
+  <div id="board10:2" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+
+  <div class="spacer"></div>
+  <div id="factory7:15" class="tile"></div>
+  <div id="factory7:16" class="tile"></div>
+  <div id="factory7:17" class="tile"></div>
+
+</div>
+<div class="row">
+  <div id="board0:3" class="spacer"></div>
+  <div id="board1:3" class="tile"></div>
+  <div id="board2:3" class="tile"></div>
+  <div id="board3:3" class="tile"></div>
+  <div id="board4:3" class="tile"></div>
+  <div id="board5:3" class="spacer"><img src="./assets/arrow.png"></div>
+  <div id="board6:3" class="tile"></div>
+  <div id="board7:3" class="tile"></div>
+  <div id="board8:3" class="tile"></div>
+  <div id="board9:3" class="tile"></div>
+  <div id="board10:3" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div id="factory6:0" class="tile"></div>
+  <div id="factory6:1" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div id="factory7:18" class="tile"></div>
+  <div id="factory7:19" class="tile"></div>
+  <div id="factory7:20" class="tile"></div>
+
+
+</div>
+<div class="row">
+  <div id="board0:4" class="tile"></div>
+  <div id="board1:4" class="tile"></div>
+  <div id="board2:4" class="tile"></div>
+  <div id="board3:4" class="tile"></div>
+  <div id="board4:4" class="tile"></div>
+  <div id="board5:4" class="spacer"><img src="./assets/arrow.png"></div>
+  <div id="board6:4" class="tile"></div>
+  <div id="board7:4" class="tile"></div>
+  <div id="board8:4" class="tile"></div>
+  <div id="board9:4" class="tile"></div>
+  <div id="board10:4" class="tile"></div>
+
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div id="factory6:2" class="tile"></div>
+  <div id="factory6:3" class="tile"></div>
+
+
+  <div class="spacer"></div>
+  <div id="factory7:21" class="tile"></div>
+  <div id="factory7:22" class="tile"></div>
+  <div id="factory7:23" class="tile"></div>
+
+
+</div>
+
+<script src="azulejos.js"></script>
+</body>
+</html>
