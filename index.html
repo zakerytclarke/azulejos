@@ -51,12 +51,17 @@ html{
 
 <div class="row" style="display:flex;">
 <div style="flex:.5">
-<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;margin-left:40vw;">
+<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;margin-left:22vw;">
 Azulejos
 </h1>
 </div>
-<div style="flex:.5">
-<h1 style="font-size:5vmin;font-family: 'Bad Script',cursive;margin-left:20vw;">
+<div style="flex:.5;">
+<h1 id="turn" style="font-size:5vmin;font-family: 'Bad Script',cursive;margin-left:20vw;">
+Player 1
+</h1>
+</div>
+<div style="flex:.5;">
+<h1 id="score" style="font-size:5vmin;font-family: 'Bad Script',cursive;margin-left:20vw;">
 Score: 0
 </h1>
 </div>
@@ -152,11 +157,11 @@ Score: 0
   <div id="board3:0" class="spacer"></div>
   <div id="board4:0" class="tile"></div>
   <div id="board5:0" class="spacer"><img src="./assets/arrow.png"></div>
-  <div id="board6:0" class="tile" style="border:3px #3E6D97 solid;"></div>
-  <div id="board7:0" class="tile" style="border:3px #E8AF44 solid;"></div>
-  <div id="board8:0" class="tile" style="border:3px #D42E38 solid;"></div>
-  <div id="board9:0" class="tile" style="border:3px #201B17 solid;"></div>
-  <div id="board10:0" class="tile"style="border:3px #A9EAF0 solid;"></div>
+  <div id="board6:0" class="tile" style="border:5px #3E6D97 solid;"></div>
+  <div id="board7:0" class="tile" style="border:5px #E8AF44 solid;"></div>
+  <div id="board8:0" class="tile" style="border:5px #D42E38 solid;"></div>
+  <div id="board9:0" class="tile" style="border:5px #201B17 solid;"></div>
+  <div id="board10:0" class="tile"style="border:5px #8cc8ce solid;"></div>
 
   <div class="spacer"></div>
   <div class="spacer"></div>
@@ -179,11 +184,11 @@ Score: 0
   <div id="board4:1" class="tile"></div>
   <div id="board5:1" class="spacer"><img src="./assets/arrow.png"></div>
 
-  <div id="board6:1" class="tile"style="border:3px #A9EAF0 solid;"></div>
-  <div id="board7:1" class="tile" style="border:3px #3E6D97 solid;"></div>
-  <div id="board8:1" class="tile" style="border:3px #E8AF44 solid;"></div>
-  <div id="board9:1" class="tile" style="border:3px #D42E38 solid;"></div>
-  <div id="board10:1" class="tile" style="border:3px #201B17 solid;"></div>
+  <div id="board6:1" class="tile"style="border:5px #8cc8ce solid;"></div>
+  <div id="board7:1" class="tile" style="border:5px #3E6D97 solid;"></div>
+  <div id="board8:1" class="tile" style="border:5px #E8AF44 solid;"></div>
+  <div id="board9:1" class="tile" style="border:5px #D42E38 solid;"></div>
+  <div id="board10:1" class="tile" style="border:5px #201B17 solid;"></div>
 
   <div class="spacer"></div>
   <div class="spacer"></div>
@@ -205,11 +210,11 @@ Score: 0
   <div id="board4:2" class="tile"></div>
   <div id="board5:2" class="spacer"><img src="./assets/arrow.png"></div>
 
-    <div id="board6:2" class="tile" style="border:3px #201B17 solid;"></div>
-    <div id="board7:2" class="tile"style="border:3px #A9EAF0 solid;"></div>
-    <div id="board8:2" class="tile" style="border:3px #3E6D97 solid;"></div>
-    <div id="board9:2" class="tile" style="border:3px #E8AF44 solid;"></div>
-    <div id="board10:2" class="tile" style="border:3px #D42E38 solid;"></div>
+    <div id="board6:2" class="tile" style="border:5px #201B17 solid;"></div>
+    <div id="board7:2" class="tile"style="border:5px #8cc8ce solid;"></div>
+    <div id="board8:2" class="tile" style="border:5px #3E6D97 solid;"></div>
+    <div id="board9:2" class="tile" style="border:5px #E8AF44 solid;"></div>
+    <div id="board10:2" class="tile" style="border:5px #D42E38 solid;"></div>
 
   <div class="spacer"></div>
   <div class="spacer"></div>
@@ -231,11 +236,11 @@ Score: 0
   <div id="board4:3" class="tile"></div>
   <div id="board5:3" class="spacer"><img src="./assets/arrow.png"></div>
 
-  <div id="board6:3" class="tile" style="border:3px #D42E38 solid;"></div>
-  <div id="board7:3" class="tile" style="border:3px #201B17 solid;"></div>
-  <div id="board8:3" class="tile"style="border:3px #A9EAF0 solid;"></div>
-  <div id="board9:3" class="tile" style="border:3px #3E6D97 solid;"></div>
-  <div id="board10:3" class="tile" style="border:3px #E8AF44 solid;"></div>
+  <div id="board6:3" class="tile" style="border:5px #D42E38 solid;"></div>
+  <div id="board7:3" class="tile" style="border:5px #201B17 solid;"></div>
+  <div id="board8:3" class="tile"style="border:5px #8cc8ce solid;"></div>
+  <div id="board9:3" class="tile" style="border:5px #3E6D97 solid;"></div>
+  <div id="board10:3" class="tile" style="border:5px #E8AF44 solid;"></div>
 
 
   <div class="spacer"></div>
@@ -257,11 +262,11 @@ Score: 0
   <div id="board3:4" class="tile"></div>
   <div id="board4:4" class="tile"></div>
   <div id="board5:4" class="spacer"><img src="./assets/arrow.png"></div>
-  <div id="board6:4" class="tile" style="border:3px #E8AF44 solid;"></div>
-  <div id="board7:4" class="tile" style="border:3px #D42E38 solid;"></div>
-  <div id="board8:4" class="tile" style="border:3px #201B17 solid;"></div>
-  <div id="board9:4" class="tile"style="border:3px #A9EAF0 solid;"></div>
-  <div id="board10:4" class="tile" style="border:3px #3E6D97 solid;"></div>
+  <div id="board6:4" class="tile" style="border:5px #E8AF44 solid;"></div>
+  <div id="board7:4" class="tile" style="border:5px #D42E38 solid;"></div>
+  <div id="board8:4" class="tile" style="border:5px #201B17 solid;"></div>
+  <div id="board9:4" class="tile"style="border:5px #8cc8ce solid;"></div>
+  <div id="board10:4" class="tile" style="border:5px #3E6D97 solid;"></div>
 
   <div class="spacer"></div>
   <div class="spacer"></div>
@@ -284,13 +289,13 @@ Score: 0
   <div id="board0:5" class="spacer"></div>
   <div id="board1:5" class="tile"><h1>-1</h1></div>
   <div id="board2:5" class="tile"><h1>-1</h1></div>
-  <div id="board3:5" class="tile"><h1>-1</h1></div>
-  <div id="board4:5" class="tile"><h1>-1</h1></div>
-  <div id="board5:5" class="tile"><h1>-1</h1></div>
-  <div id="board6:5" class="tile"><h1>-1</h1></div>
-  <div id="board7:5" class="tile"><h1>-1</h1></div>
-  <div id="board8:5" class="tile"><h1>-1</h1></div>
-  <div id="board9:5" class="tile"><h1>-1</h1></div>
+  <div id="board3:5" class="tile"><h1>-2</h1></div>
+  <div id="board4:5" class="tile"><h1>-2</h1></div>
+  <div id="board5:5" class="tile"><h1>-2</h1></div>
+  <div id="board6:5" class="tile"><h1>-2</h1></div>
+  <div id="board7:5" class="tile"><h1>-2</h1></div>
+  <div id="board8:5" class="tile"><h1>-3</h1></div>
+  <div id="board9:5" class="tile"><h1>-3</h1></div>
 
 </row>
 
