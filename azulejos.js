@@ -14,6 +14,32 @@ function Player(){
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
   ];
+
+  var pattern=[
+    [0,0,0,0,0,0,1,2,3,4,5],
+    [0,0,0,0,0,0,5,1,2,3,4],
+    [0,0,0,0,0,0,4,5,1,2,3],
+    [0,0,0,0,0,0,3,4,5,1,2],
+    [0,0,0,0,0,0,2,3,4,5,1],
+  ];
+
+  this.scoreBoard=function(){
+    for(var i=0;i<5;i++){
+      var bool=true;
+      for(var j=0;j<this.y+1;j++){
+        bool&=this.board[i][4-j]!=0;
+      }
+      if(bool){
+        for(var k=6;k<11;k++){
+          console.log(pattern[i][k]);
+          if(pattern[i][k]==this.board[i][4]){
+            this.board=[i][k]=this.board[i][4];
+          }
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -38,7 +64,6 @@ function Game(numPlayers){
     var bag=new Bag();//draw bag
     bag.shuffle();
 
-    console.log(bag.bag);
 
     function Bag(){
       this.bag=[];
@@ -95,7 +120,7 @@ function Game(numPlayers){
           this.players[i].scoreBoard();
         }
 
-        //Assign turn to whoever drew first
+        //TODO Assign turn to whoever drew first
       }else{
         this.turn++;
         if(this.turn>=this.players.length){
@@ -111,7 +136,7 @@ function Game(numPlayers){
     }
 
     this.setupFactories=function(){
-      for(var i=0;i<7;i++){
+      for(var i=0;i<1;i++){
         for(var j=0;j<4;j++){
           this.factoryboards[i][j]=bag.draw();
         }
@@ -164,7 +189,8 @@ for(var i=0;i<5;i++){
         }
         //Penalize for extra tiles
         if(tileHolder.length!=0){
-
+          game.players[game.turn].score-=tileHolder.length;
+          tileHolder=[];
         }
         game.turnState="null";
         outputBoard(game.players[game.turn],game.factoryboards,game.turn);
