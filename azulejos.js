@@ -26,16 +26,49 @@ function Player(){
   this.scoreBoard=function(){
     for(var i=0;i<5;i++){
       var bool=true;
-      for(var j=0;j<this.y+1;j++){
-        bool&=this.board[i][4-j]!=0;
+      var color=0;
+      for(var j=0;j<=i;j++){		
+        bool=bool&&this.board[i][4-j]!=0;
+      		color=this.board[i][4-j];
       }
       if(bool){
-        for(var k=6;k<11;k++){
-          console.log(pattern[i][k]);
-          if(pattern[i][k]==this.board[i][4]){
-            this.board=[i][k]=this.board[i][4];
-          }
+      	//Clear Row
+      	for(var k=0;k<6;k++){
+      		this.board[i][k]=0;	
+      	}
+      	for(var k=6;k<11;k++){
+      	 		if(pattern[i][k]==color){
+								//TODO Check if color already used
+        			this.board[i][k]=color;	
+        			
+        			
+        			this.score++;
+        			//Score
+        			l=i-1;
+        			while(l>=0&&this.board[l][k]!=0){
+        				this.score++;
+        				l--;
+        			}
+        			l=i+1;
+        			while(l<=4&&this.board[l][k]!=0){
+        				this.score++;
+        				l++;
+        			}
+        			
+        			l=k-1;
+        			while(l>=6&&this.board[i][l]!=0){
+        				this.score++;
+        				l--;
+        			}
+        			l=k+1;
+        			while(l<=10&&this.board[i][l]!=0){
+        				this.score++;
+        				l++;
+        			}
+        			
+        		}
         }
+        
       }
     }
   }
@@ -77,7 +110,10 @@ function Game(numPlayers){
       this.shuffle=function(){
         this.bag=shuffle(this.bag);
       }
-
+					
+				this.size=function(){
+					return this.bag.length;
+				}
       this.draw=function(){
         return this.bag.pop();
       }
@@ -110,17 +146,35 @@ function Game(numPlayers){
     this.next=function(){
       //Check if round is over
       var bool=true;
-      for(var i=0;i<this.factoryboards.length-1;i++){
+      for(var i=0;i<this.factoryboards.length;i++){
         for(var j=0;j<this.factoryboards[i].length;j++){
-          bool&=this.factoryboards[i][j]==0;
+          bool=bool&&this.factoryboards[i][j]==0;
         }
       }
       if(bool){
+      
         for(var i=0;i<this.players.length;i++){
           this.players[i].scoreBoard();
         }
+		
+					
+					
+					this.setupFactories();
 
         //TODO Assign turn to whoever drew first
+      }else 
+      //Check if Game Over
+      if(bag.size()==0){
+      alert("done");
+      	var highest=0;
+      	var p=0;
+      	for(var i=0;i<this.players.length();i++){
+      		if(this.players[i].score>highest){
+      			p=i;
+      			highest=this.players[i].score;
+      		}
+      	}
+      	//Final ScoreBoard
       }else{
         this.turn++;
         if(this.turn>=this.players.length){
@@ -136,8 +190,8 @@ function Game(numPlayers){
     }
 
     this.setupFactories=function(){
-      for(var i=0;i<1;i++){
-        for(var j=0;j<4;j++){
+      for(var i=0;i<7;i++){
+        for(var j=0;j<4&&bag.size()>0;j++){
           this.factoryboards[i][j]=bag.draw();
         }
       }
