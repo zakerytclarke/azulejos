@@ -361,8 +361,8 @@ for(var i=0;i<5;i++){
   for(var i=0;i<pattern.length;i++){
   	for(var j=6;j<pattern[i].length;j++){
   		var cs=colors[pattern[i][j]];
-  		htmlboard[i][j].style.border="5px #"+cs[0]+"0"+cs[2]+"0"+cs[4]+"0"+" solid";
-
+  		//htmlboard[i][j].style.border="5px #"+cs[1]+"0"+cs[3]+"0"+cs[5]+"0"+" solid";
+      
   	}
 
   }
