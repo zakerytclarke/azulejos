@@ -2,7 +2,16 @@ var colors=["#E1E3D6","#3E6D97","#E8AF44","#D42E38","#3e4a51","#A9EAF0"];
 //Blank=0;Blue=1;Orange=2;Red=3;Black=4;Teal=5
 
 
-
+  var pattern=[
+    [0,0,0,0,0,0,1,2,3,4,5],
+    [0,0,0,0,0,0,5,1,2,3,4],
+    [0,0,0,0,0,0,4,5,1,2,3],
+    [0,0,0,0,0,0,3,4,5,1,2],
+    [0,0,0,0,0,0,2,3,4,5,1],
+  ];
+  
+  
+  
 
 function Player(){
   this.score=0;
@@ -15,13 +24,6 @@ function Player(){
     [0,0,0,0,0,0,0,0,0,0,0],
   ];
 
-  var pattern=[
-    [0,0,0,0,0,0,1,2,3,4,5],
-    [0,0,0,0,0,0,5,1,2,3,4],
-    [0,0,0,0,0,0,4,5,1,2,3],
-    [0,0,0,0,0,0,3,4,5,1,2],
-    [0,0,0,0,0,0,2,3,4,5,1],
-  ];
 
   this.scoreBoard=function(){
     for(var i=0;i<5;i++){
@@ -38,41 +40,129 @@ function Player(){
       	}
       	for(var k=6;k<11;k++){
       	 		if(pattern[i][k]==color){
-								//TODO Check if color already used
-        			this.board[i][k]=color;	
+								
+								//Check if color already used
+								if(this.board[i][k]==0){
+        				this.board[i][k]=color;	
         			
         			
-        			this.score++;
-        			//Score
-        			l=i-1;
-        			while(l>=0&&this.board[l][k]!=0){
         				this.score++;
-        				l--;
-        			}
-        			l=i+1;
-        			while(l<=4&&this.board[l][k]!=0){
-        				this.score++;
-        				l++;
-        			}
+        				//Score
+        				l=i-1;
+        				while(l>=0&&this.board[l][k]!=0){
+        					this.score++;
+        					l--;
+        				}
+        				l=i+1;
+        				while(l<=4&&this.board[l][k]!=0){
+        					this.score++;
+        					l++;
+        				}
         			
-        			l=k-1;
-        			while(l>=6&&this.board[i][l]!=0){
-        				this.score++;
-        				l--;
+        				l=k-1;
+        				while(l>=6&&this.board[i][l]!=0){
+        					this.score++;
+        					l--;
+        				}
+        				l=k+1;
+        				while(l<=10&&this.board[i][l]!=0){
+        					this.score++;
+        					l++;
+        				}
         			}
-        			l=k+1;
-        			while(l<=10&&this.board[i][l]!=0){
-        				this.score++;
-        				l++;
-        			}
-        			
         		}
         }
         
       }
     }
   }
-
+  this.scoreFinal=function(){
+  		
+  		
+  		for(var i=0;i<this.board.length;i++){
+  			//Score Columns
+  			if(this.board[0][6+i]!=0&&
+  					this.board[1][6+i]!=0&&
+  					this.board[2][6+i]!=0&&
+  					this.board[3][6+i]!=0&&
+  					this.board[4][6+i]!=0)
+  			{
+  				this.score+=7;	  					
+  			}
+  			//Score Rows
+  			if(this.board[i][6+0]!=0&&
+  					this.board[i][6+1]!=0&&
+  					this.board[i][6+2]!=0&&
+  					this.board[i][6+3]!=0&&
+  					this.board[i][6+4]!=0)
+  			{
+  				this.score+=2;	  					
+  			}
+  					
+  		}
+  		//Score Colors
+  			//Blue
+  			if(this.board[0][6+0]!=0&&
+  					this.board[1][6+1]!=0&&
+  					this.board[2][6+2]!=0&&
+  					this.board[3][6+3]!=0&&
+  					this.board[4][6+4]!=0)
+  			{
+  				this.score+=10;	  					
+  			}
+  			//Orange
+  			if(this.board[0][6+1]!=0&&
+  					this.board[1][6+2]!=0&&
+  					this.board[2][6+3]!=0&&
+  					this.board[3][6+4]!=0&&
+  					this.board[4][6+0]!=0)
+  			{
+  				this.score+=10;	  					
+  			}
+  			//Red
+  			if(this.board[0][6+2]!=0&&
+  					this.board[1][6+3]!=0&&
+  					this.board[2][6+4]!=0&&
+  					this.board[3][6+0]!=0&&
+  					this.board[4][6+1]!=0)
+  			{
+  				this.score+=10;	  					
+  			}
+  			//Black
+  			if(this.board[0][6+3]!=0&&
+  					this.board[1][6+4]!=0&&
+  					this.board[2][6+0]!=0&&
+  					this.board[3][6+1]!=0&&
+  					this.board[4][6+2]!=0)
+  			{
+  				this.score+=10;	  					
+  			}
+  			//Teal
+  			if(this.board[0][6+4]!=0&&
+  					this.board[1][6+0]!=0&&
+  					this.board[2][6+1]!=0&&
+  					this.board[3][6+2]!=0&&
+  					this.board[4][6+3]!=0)
+  			{
+  				this.score+=10;	  					
+  			}
+  }
+	this.rowComplete=function(){
+      for(var i=0;i<this.board.length;i++){
+ 	 				if(this.board[i][6+0]!=0&&
+  					this.board[i][6+1]!=0&&
+  					this.board[i][6+2]!=0&&
+  					this.board[i][6+3]!=0&&
+  					this.board[i][6+4]!=0)
+  				{
+  					return true;  					
+  				}
+ 			}
+ 			return false; 					
+  			
+	
+	
+	}
 }
 
 
@@ -92,8 +182,8 @@ function Game(numPlayers){
       [0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ];
-
-
+		
+			
     var bag=new Bag();//draw bag
     bag.shuffle();
 
@@ -101,7 +191,7 @@ function Game(numPlayers){
     function Bag(){
       this.bag=[];
       for(var i=1;i<6;i++){
-        for(var j=0;j<20;j++){
+        for(var j=0;j<10*numPlayers;j++){
           this.bag.push(i);
         }
       }
@@ -116,6 +206,9 @@ function Game(numPlayers){
 				}
       this.draw=function(){
         return this.bag.pop();
+      }
+      this.add=function(){
+      	this.bag.push();
       }
       function shuffle(a) {
         var j, x, i;
@@ -144,6 +237,7 @@ function Game(numPlayers){
 
     }
     this.next=function(){
+    
       //Check if round is over
       var bool=true;
       for(var i=0;i<this.factoryboards.length;i++){
@@ -151,6 +245,57 @@ function Game(numPlayers){
           bool=bool&&this.factoryboards[i][j]==0;
         }
       }
+      //Check row filled
+      var boolRow=false;
+      for(var i=0;i<this.players.length;i++){
+      	if(this.players[i].rowComplete()){
+      		boolRow=true;
+      	}
+      }
+      
+      
+      //Game Over?
+      if((bag.size()<=0&&bool)||(boolRow&&bool)){
+   
+      //Score Columns and All color
+      for(var i=0;i<this.players.length;i++){
+          this.players[i].scoreFinal();
+       }
+      
+      
+      
+      //Get Winner
+      	for(var i=0;i<this.players.length;i++){
+          this.players[i].scoreBoard();
+        }
+      	var highest=0;
+      	var p=0;
+      	for(var i=0;i<this.players.length;i++){
+      		if(this.players[i].score>highest){
+      			p=i;
+      			highest=this.players[i].score;
+      		}
+      	}
+      	
+      	
+      	//Final ScoreBoard  	
+      	var tieBool=false;
+      	for(var i=0;i<this.players.length;i++){
+      		if(highest==this.players[i].score&&p!=i){
+      			tieBool=true;
+      		}
+      	}
+      	
+      	if(tieBool){
+      		document.getElementById("winner").innerHTML="Players Tied!";
+      	}else{
+      		document.getElementById("winner").innerHTML="Player "+(p+1)+" won!";
+      	}
+      	
+      	document.getElementById("start").style.display="none";
+      	document.getElementById("end").style.display="block";
+     		document.getElementById("title-page").style.display="block";
+      }else
       if(bool){
       
         for(var i=0;i<this.players.length;i++){
@@ -161,21 +306,14 @@ function Game(numPlayers){
 					
 					this.setupFactories();
 
-        //TODO Assign turn to whoever drew first
-      }else 
+        //Assign turn to whoever drew first
+        if(pNext!=-1){
+        	game.turn=pNext;
+        }
+        pNext=-1;
+      }
       //Check if Game Over
-      if(bag.size()==0){
-      alert("done");
-      	var highest=0;
-      	var p=0;
-      	for(var i=0;i<this.players.length();i++){
-      		if(this.players[i].score>highest){
-      			p=i;
-      			highest=this.players[i].score;
-      		}
-      	}
-      	//Final ScoreBoard
-      }else{
+      else{
         this.turn++;
         if(this.turn>=this.players.length){
           this.turn=0;
@@ -190,7 +328,7 @@ function Game(numPlayers){
     }
 
     this.setupFactories=function(){
-      for(var i=0;i<7;i++){
+      for(var i=0;i<(3+this.players.length);i++){
         for(var j=0;j<4&&bag.size()>0;j++){
           this.factoryboards[i][j]=bag.draw();
         }
@@ -204,6 +342,7 @@ function Game(numPlayers){
 
 
 var tileHolder=[];
+var pNext=-1;
 
 //Configure Outputs
 var htmlboard=[];
@@ -218,10 +357,28 @@ for(var i=0;i<5;i++){
 
 
 
+  //Initialize the backgrounds
+  for(var i=0;i<pattern.length;i++){
+  	for(var j=6;j<pattern[i].length;j++){
+  		var cs=color[pattern[i][j]];
+  		alert(cs.substring(1,4));
+  		htmlboard[i][j].style.border="5px "+cs+" solid";
+  
+  	}
+  
+  }
 
 //Play Game
 var game=new Game(2);
+
+function start(num){
+game=new Game(num);
 game.play();
+
+document.getElementById("title-page").style.display="none";
+
+
+}
 
 
 
@@ -233,22 +390,33 @@ for(var i=0;i<5;i++){
     htmlboard[i][j].x=j;
     htmlboard[i][j].onclick=function(){
       if(game.turnState=="place"){
-
-        //TODO CHECK CORRECT COLOR
-
-        for(var k=0;k<this.y+1&&tileHolder.length!=0;k++){
-          if(game.players[game.turn].board[this.y][4-k]==0){//Open Space and Same Color
-            game.players[game.turn].board[this.y][4-k]=tileHolder.pop();
-          }
-        }
+				
+        if(game.players[game.turn].board[this.y][4]==0||
+        		 game.players[game.turn].board[this.y][4]==tileHolder[0]){
+        		 	for(var k=0;k<this.y+1&&tileHolder.length!=0;k++){
+         		 if(game.players[game.turn].board[this.y][4-k]==0){//Open Space and Same Color
+           		 game.players[game.turn].board[this.y][4-k]=tileHolder.pop();
+          		}
+        			}
+        	}
         //Penalize for extra tiles
         if(tileHolder.length!=0){
-          game.players[game.turn].score-=tileHolder.length;
+        		var punishment=[1,1,1,2,2,3,3,3];
+        		while(tileHolder.length>0){
+        			if(punishment.length>0){
+        				game.players[game.turn].score-=punishment[0];
+        				punishment.pop();
+        			}else{
+        				game.players[game.turn].score-=3;
+        			}
+        			tileHolder.pop();
+        		}
           tileHolder=[];
         }
         game.turnState="null";
         outputBoard(game.players[game.turn],game.factoryboards,game.turn);
 
+						//Refresh after a moment
         setTimeout(function(){game.next();},1000);
       }
     }
@@ -267,6 +435,14 @@ for(var i=0;i<game.factoryboards.length;i++){
         if(color!=0){
           this.style.border="3px black dashed";
           game.turnState="place";
+          
+          //Check if first to draw from Discard
+          if(this.group==7&&pNext==-1){
+          	game.players[game.turn].score-=1;
+          	pNext=game.turn;
+          }
+          
+          
           for(var k=0;k<game.factoryboards[this.group].length;k++){
             //Remove from Factory
             if(color==game.factoryboards[this.group][k]){//Move selected
@@ -290,7 +466,12 @@ for(var i=0;i<game.factoryboards.length;i++){
 
 
 
+function reset(){
+	document.getElementById("end").style.display="none";
+	
+	document.getElementById("start").style.display="block";
 
+}
 
 
 

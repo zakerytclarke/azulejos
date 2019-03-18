@@ -42,11 +42,49 @@ html{
   vertical-align:center;
   width:50%;
 }
-
+.menustart{
+text-align:center;
+}
 
 </style>
 </head>
 <body>
+
+<div id="title-page" style="position:fixed;width:100vw;height:100vh;background-color:#E1E3D6;top:0;left:0;">
+<h1 style="font-size:10vmin;font-family: 'Bad Script',cursive;text-align:center;">
+Azulejos
+</h1>
+
+<div id="start">
+<div class="menustart" onclick="start(2)">
+<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;">
+2 Player
+</h1>
+</div>
+<div class="menustart" onclick="start(3)">
+<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;">
+3 Player
+</h1>
+</div>
+<div class="menustart" onclick="start(4)">
+<h1 style="font-size:6vmin;font-family: 'Bad Script',cursive;">
+4 Player
+</h1>
+</div>
+
+</div>
+
+
+<div id="end" style="font-family: 'Bad Script',cursive;display:none;text-align:center;">
+<h1 id="winner">
+Winner
+</h1>
+<h2 onclick="reset()">
+New Game
+</h2>
+</div>
+
+</div>
 
 
 <div class="row" style="display:flex;">
