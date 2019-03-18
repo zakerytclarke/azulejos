@@ -9,9 +9,9 @@ var colors=["#E1E3D6","#3E6D97","#E8AF44","#D42E38","#3e4a51","#A9EAF0"];
     [0,0,0,0,0,0,3,4,5,1,2],
     [0,0,0,0,0,0,2,3,4,5,1],
   ];
-  
-  
-  
+
+
+
 
 function Player(){
   this.score=0;
@@ -29,23 +29,23 @@ function Player(){
     for(var i=0;i<5;i++){
       var bool=true;
       var color=0;
-      for(var j=0;j<=i;j++){		
+      for(var j=0;j<=i;j++){
         bool=bool&&this.board[i][4-j]!=0;
       		color=this.board[i][4-j];
       }
       if(bool){
       	//Clear Row
       	for(var k=0;k<6;k++){
-      		this.board[i][k]=0;	
+      		this.board[i][k]=0;
       	}
       	for(var k=6;k<11;k++){
       	 		if(pattern[i][k]==color){
-								
+
 								//Check if color already used
 								if(this.board[i][k]==0){
-        				this.board[i][k]=color;	
-        			
-        			
+        				this.board[i][k]=color;
+
+
         				this.score++;
         				//Score
         				l=i-1;
@@ -58,7 +58,7 @@ function Player(){
         					this.score++;
         					l++;
         				}
-        			
+
         				l=k-1;
         				while(l>=6&&this.board[i][l]!=0){
         					this.score++;
@@ -72,13 +72,13 @@ function Player(){
         			}
         		}
         }
-        
+
       }
     }
   }
   this.scoreFinal=function(){
-  		
-  		
+
+
   		for(var i=0;i<this.board.length;i++){
   			//Score Columns
   			if(this.board[0][6+i]!=0&&
@@ -87,7 +87,7 @@ function Player(){
   					this.board[3][6+i]!=0&&
   					this.board[4][6+i]!=0)
   			{
-  				this.score+=7;	  					
+  				this.score+=7;
   			}
   			//Score Rows
   			if(this.board[i][6+0]!=0&&
@@ -96,9 +96,9 @@ function Player(){
   					this.board[i][6+3]!=0&&
   					this.board[i][6+4]!=0)
   			{
-  				this.score+=2;	  					
+  				this.score+=2;
   			}
-  					
+
   		}
   		//Score Colors
   			//Blue
@@ -108,7 +108,7 @@ function Player(){
   					this.board[3][6+3]!=0&&
   					this.board[4][6+4]!=0)
   			{
-  				this.score+=10;	  					
+  				this.score+=10;
   			}
   			//Orange
   			if(this.board[0][6+1]!=0&&
@@ -117,7 +117,7 @@ function Player(){
   					this.board[3][6+4]!=0&&
   					this.board[4][6+0]!=0)
   			{
-  				this.score+=10;	  					
+  				this.score+=10;
   			}
   			//Red
   			if(this.board[0][6+2]!=0&&
@@ -126,7 +126,7 @@ function Player(){
   					this.board[3][6+0]!=0&&
   					this.board[4][6+1]!=0)
   			{
-  				this.score+=10;	  					
+  				this.score+=10;
   			}
   			//Black
   			if(this.board[0][6+3]!=0&&
@@ -135,7 +135,7 @@ function Player(){
   					this.board[3][6+1]!=0&&
   					this.board[4][6+2]!=0)
   			{
-  				this.score+=10;	  					
+  				this.score+=10;
   			}
   			//Teal
   			if(this.board[0][6+4]!=0&&
@@ -144,7 +144,7 @@ function Player(){
   					this.board[3][6+2]!=0&&
   					this.board[4][6+3]!=0)
   			{
-  				this.score+=10;	  					
+  				this.score+=10;
   			}
   }
 	this.rowComplete=function(){
@@ -155,13 +155,13 @@ function Player(){
   					this.board[i][6+3]!=0&&
   					this.board[i][6+4]!=0)
   				{
-  					return true;  					
+  					return true;
   				}
  			}
- 			return false; 					
-  			
-	
-	
+ 			return false;
+
+
+
 	}
 }
 
@@ -182,8 +182,8 @@ function Game(numPlayers){
       [0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ];
-		
-			
+
+
     var bag=new Bag();//draw bag
     bag.shuffle();
 
@@ -200,7 +200,7 @@ function Game(numPlayers){
       this.shuffle=function(){
         this.bag=shuffle(this.bag);
       }
-					
+
 				this.size=function(){
 					return this.bag.length;
 				}
@@ -237,7 +237,7 @@ function Game(numPlayers){
 
     }
     this.next=function(){
-    
+
       //Check if round is over
       var bool=true;
       for(var i=0;i<this.factoryboards.length;i++){
@@ -252,18 +252,18 @@ function Game(numPlayers){
       		boolRow=true;
       	}
       }
-      
-      
+
+
       //Game Over?
       if((bag.size()<=0&&bool)||(boolRow&&bool)){
-   
+
       //Score Columns and All color
       for(var i=0;i<this.players.length;i++){
           this.players[i].scoreFinal();
        }
-      
-      
-      
+
+
+
       //Get Winner
       	for(var i=0;i<this.players.length;i++){
           this.players[i].scoreBoard();
@@ -276,34 +276,34 @@ function Game(numPlayers){
       			highest=this.players[i].score;
       		}
       	}
-      	
-      	
-      	//Final ScoreBoard  	
+
+
+      	//Final ScoreBoard
       	var tieBool=false;
       	for(var i=0;i<this.players.length;i++){
       		if(highest==this.players[i].score&&p!=i){
       			tieBool=true;
       		}
       	}
-      	
+
       	if(tieBool){
       		document.getElementById("winner").innerHTML="Players Tied!";
       	}else{
       		document.getElementById("winner").innerHTML="Player "+(p+1)+" won!";
       	}
-      	
+
       	document.getElementById("start").style.display="none";
       	document.getElementById("end").style.display="block";
      		document.getElementById("title-page").style.display="block";
       }else
       if(bool){
-      
+
         for(var i=0;i<this.players.length;i++){
           this.players[i].scoreBoard();
         }
-		
-					
-					
+
+
+
 					this.setupFactories();
 
         //Assign turn to whoever drew first
@@ -360,12 +360,11 @@ for(var i=0;i<5;i++){
   //Initialize the backgrounds
   for(var i=0;i<pattern.length;i++){
   	for(var j=6;j<pattern[i].length;j++){
-  		var cs=color[pattern[i][j]];
-  		alert(cs.substring(1,4));
-  		htmlboard[i][j].style.border="5px "+cs+" solid";
-  
+  		var cs=colors[pattern[i][j]].substr(1,4);
+  		htmlboard[i][j].style.border="5px #"+cs+"00 solid";
+
   	}
-  
+
   }
 
 //Play Game
@@ -390,7 +389,7 @@ for(var i=0;i<5;i++){
     htmlboard[i][j].x=j;
     htmlboard[i][j].onclick=function(){
       if(game.turnState=="place"){
-				
+
         if(game.players[game.turn].board[this.y][4]==0||
         		 game.players[game.turn].board[this.y][4]==tileHolder[0]){
         		 	for(var k=0;k<this.y+1&&tileHolder.length!=0;k++){
@@ -435,14 +434,14 @@ for(var i=0;i<game.factoryboards.length;i++){
         if(color!=0){
           this.style.border="3px black dashed";
           game.turnState="place";
-          
+
           //Check if first to draw from Discard
           if(this.group==7&&pNext==-1){
           	game.players[game.turn].score-=1;
           	pNext=game.turn;
           }
-          
-          
+
+
           for(var k=0;k<game.factoryboards[this.group].length;k++){
             //Remove from Factory
             if(color==game.factoryboards[this.group][k]){//Move selected
@@ -468,7 +467,7 @@ for(var i=0;i<game.factoryboards.length;i++){
 
 function reset(){
 	document.getElementById("end").style.display="none";
-	
+
 	document.getElementById("start").style.display="block";
 
 }
