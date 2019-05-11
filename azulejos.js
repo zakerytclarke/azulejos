@@ -295,6 +295,16 @@ function Game(numPlayers){
       	document.getElementById("start").style.display="none";
       	document.getElementById("end").style.display="block";
      		document.getElementById("title-page").style.display="block";
+
+        document.getElementById("scores").innerHTML="";
+        for(var i=0;i<this.players.length;i++){
+          document.getElementById("scores").innerHTML+="Player "+(i+1)+":"+this.players[i].score+"\n";
+        }
+
+
+
+        document.getElementById("celebrate").style.display="block";
+
       }else
       if(bool){
 
@@ -362,7 +372,7 @@ for(var i=0;i<5;i++){
   	for(var j=6;j<pattern[i].length;j++){
   		var cs=colors[pattern[i][j]];
   		//htmlboard[i][j].style.border="5px #"+cs[1]+"0"+cs[3]+"0"+cs[5]+"0"+" solid";
-      
+
   	}
 
   }
@@ -469,6 +479,7 @@ function reset(){
 	document.getElementById("end").style.display="none";
 
 	document.getElementById("start").style.display="block";
+  document.getElementById("celebrate").style.display="none";
 
 }
 
