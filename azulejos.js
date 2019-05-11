@@ -191,7 +191,9 @@ function Game(numPlayers){
     function Bag(){
       this.bag=[];
       for(var i=1;i<6;i++){
-        for(var j=0;j<10*numPlayers;j++){
+//        for(var j=0;j<10*numPlayers;j++){
+          for(var j=0;j<1*numPlayers;j++){
+
           this.bag.push(i);
         }
       }
@@ -298,7 +300,7 @@ function Game(numPlayers){
 
         document.getElementById("scores").innerHTML="";
         for(var i=0;i<this.players.length;i++){
-          document.getElementById("scores").innerHTML+="Player "+(i+1)+":"+this.players[i].score+"\n";
+          document.getElementById("scores").innerHTML+="<h3>Player "+(i+1)+": "+this.players[i].score+"</h3>";
         }
 
 
